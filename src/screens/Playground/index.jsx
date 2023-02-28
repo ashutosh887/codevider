@@ -13,6 +13,11 @@ import { ModalContext } from "../../context/ModalContext";
 import Modal from "../../components/Modal";
 import { Buffer } from "buffer";
 import axios from "axios";
+
+const api_url = process.env.REACT_APP_URL;
+const api_key = process.env.REACT_APP_API_KEY;
+const api_host = process.env.REACT_APP_API_HOST;
+
 const MainContainer = styled.div`
   display: grid;
   grid-template-columns: ${({ isFullScreen }) =>
@@ -59,13 +64,13 @@ const Playground = () => {
   const postSubmission = async (language_id, source_code, stdin) => {
     const options = {
       method: "POST",
-      url: "https://judge0-ce.p.rapidapi.com/submissions",
+      url: api_url,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
         "content-type": "application/json",
         "Content-Type": "application/json",
-        "X-RapidAPI-Key": "b4e5c5a05fmsh9adf6ec091523f8p165338jsncc58f31c26e1",
-        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
+        "X-RapidAPI-Key": api_key,
+        "X-RapidAPI-Host": api_host,
       },
       data: JSON.stringify({
         language_id: language_id,
@@ -79,14 +84,13 @@ const Playground = () => {
   };
 
   const getOutput = async (token) => {
-    // we will make api call here
     const options = {
       method: "GET",
-      url: "https://judge0-ce.p.rapidapi.com/submissions/" + token,
+      url: api_url + token,
       params: { base64_encoded: "true", fields: "*" },
       headers: {
-        "X-RapidAPI-Key": "3ed7a75b44mshc9e28568fe0317bp17b5b2jsn6d89943165d8",
-        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
+        "X-RapidAPI-Key": api_key,
+        "X-RapidAPI-Host": api_host,
       },
     };
 
