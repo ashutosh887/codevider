@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IoTrashOutline } from "react-icons/io5";
 import { BiEditAlt } from "react-icons/bi";
 import { FcOpenedFolder } from "react-icons/fc";
-import logo from "../../assets/logo.png";
+import { logos } from "../../config";
 import { ModalContext } from "../../context/ModalContext";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 import { useNavigate } from "react-router-dom";
@@ -189,7 +189,7 @@ const RightComponent = () => {
                   }}
                 >
                   <CardContainer>
-                    <Logo src={logo} />
+                    <Logo src={logos[playground.language]} />
                     <CardContent>
                       <p>{playground.title}</p>
                       <p>Language: {playground.language}</p>
