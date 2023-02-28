@@ -35,15 +35,25 @@ export const languageMap = {
 const PlaygroundProvider = ({ children }) => {
   const initialItems = {
     [uuid()]: {
-      title: "DSA",
+      title: "Hello, World!",
       playgrounds: {
         [uuid()]: {
-          title: "Stack Implementation",
+          title: "Template",
           language: "cpp",
           code: languageMap["cpp"].defaultCode,
         },
         [uuid()]: {
-          name: "Array",
+          title: "Template",
+          language: "java",
+          code: languageMap["java"].defaultCode,
+        },
+        [uuid()]: {
+          title: "Template",
+          language: "python",
+          code: languageMap["python"].defaultCode,
+        },
+        [uuid()]: {
+          title: "Template",
           language: "javascript",
           code: languageMap["javascript"].defaultCode,
         },
